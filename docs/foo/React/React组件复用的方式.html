@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React组件复用的方式 | PG-伴我同行</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="favicon.ico">
+    <script src="/blog/assets/js/bodyClick.js"></script>
+    <meta name="description" content="this is my blog">
+    <link rel="preload" href="/blog/assets/css/0.styles.5afabf7a.css" as="style"><link rel="preload" href="/blog/assets/js/app.5f46caf4.js" as="script"><link rel="preload" href="/blog/assets/js/3.ba706977.js" as="script"><link rel="preload" href="/blog/assets/js/1.5260e963.js" as="script"><link rel="preload" href="/blog/assets/js/143.4f3a996c.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7cd368c0.js"><link rel="prefetch" href="/blog/assets/js/100.27698622.js"><link rel="prefetch" href="/blog/assets/js/101.a1b93294.js"><link rel="prefetch" href="/blog/assets/js/102.aa6056f4.js"><link rel="prefetch" href="/blog/assets/js/103.b447d111.js"><link rel="prefetch" href="/blog/assets/js/104.5c6d6c73.js"><link rel="prefetch" href="/blog/assets/js/105.576d8260.js"><link rel="prefetch" href="/blog/assets/js/106.ec614c35.js"><link rel="prefetch" href="/blog/assets/js/107.322f701d.js"><link rel="prefetch" href="/blog/assets/js/108.f5a49a1d.js"><link rel="prefetch" href="/blog/assets/js/109.b0f047d2.js"><link rel="prefetch" href="/blog/assets/js/11.68af76a4.js"><link rel="prefetch" href="/blog/assets/js/110.8edc2cc3.js"><link rel="prefetch" href="/blog/assets/js/111.cfae58be.js"><link rel="prefetch" href="/blog/assets/js/112.769703b0.js"><link rel="prefetch" href="/blog/assets/js/113.732865ca.js"><link rel="prefetch" href="/blog/assets/js/114.557323d2.js"><link rel="prefetch" href="/blog/assets/js/115.5faa0a5b.js"><link rel="prefetch" href="/blog/assets/js/116.08a4dbc2.js"><link rel="prefetch" href="/blog/assets/js/117.b1764958.js"><link rel="prefetch" href="/blog/assets/js/118.1ff24d90.js"><link rel="prefetch" href="/blog/assets/js/119.de5a7702.js"><link rel="prefetch" href="/blog/assets/js/12.d896bc3a.js"><link rel="prefetch" href="/blog/assets/js/120.56c06010.js"><link rel="prefetch" href="/blog/assets/js/121.2c35519d.js"><link rel="prefetch" href="/blog/assets/js/122.bfa5f0ec.js"><link rel="prefetch" href="/blog/assets/js/123.42e4d466.js"><link rel="prefetch" href="/blog/assets/js/124.3f475806.js"><link rel="prefetch" href="/blog/assets/js/125.2cadb7fd.js"><link rel="prefetch" href="/blog/assets/js/126.390abcbb.js"><link rel="prefetch" href="/blog/assets/js/127.a8ff9188.js"><link rel="prefetch" href="/blog/assets/js/128.f9905b42.js"><link rel="prefetch" href="/blog/assets/js/129.7d5183cc.js"><link rel="prefetch" href="/blog/assets/js/13.14aff3d4.js"><link rel="prefetch" href="/blog/assets/js/130.6cb8ac69.js"><link rel="prefetch" href="/blog/assets/js/131.3700ed28.js"><link rel="prefetch" href="/blog/assets/js/132.2e791af6.js"><link rel="prefetch" href="/blog/assets/js/133.7e39726f.js"><link rel="prefetch" href="/blog/assets/js/134.68518486.js"><link rel="prefetch" href="/blog/assets/js/135.bae697f7.js"><link rel="prefetch" href="/blog/assets/js/136.572044db.js"><link rel="prefetch" href="/blog/assets/js/137.e1b9f7ca.js"><link rel="prefetch" href="/blog/assets/js/138.1ad64bb7.js"><link rel="prefetch" href="/blog/assets/js/139.c0d2e229.js"><link rel="prefetch" href="/blog/assets/js/14.12c1fe38.js"><link rel="prefetch" href="/blog/assets/js/140.7e4e68ef.js"><link rel="prefetch" href="/blog/assets/js/141.b2830e4e.js"><link rel="prefetch" href="/blog/assets/js/142.74764f35.js"><link rel="prefetch" href="/blog/assets/js/144.ed946c70.js"><link rel="prefetch" href="/blog/assets/js/145.94dbbd62.js"><link rel="prefetch" href="/blog/assets/js/146.fac19149.js"><link rel="prefetch" href="/blog/assets/js/147.47f9729c.js"><link rel="prefetch" href="/blog/assets/js/148.89045e0c.js"><link rel="prefetch" href="/blog/assets/js/149.bc09f7b7.js"><link rel="prefetch" href="/blog/assets/js/15.9b209aa7.js"><link rel="prefetch" href="/blog/assets/js/150.06d93455.js"><link rel="prefetch" href="/blog/assets/js/151.28d6f564.js"><link rel="prefetch" href="/blog/assets/js/152.e42704c8.js"><link rel="prefetch" href="/blog/assets/js/153.5c22e73d.js"><link rel="prefetch" href="/blog/assets/js/154.f13feff9.js"><link rel="prefetch" href="/blog/assets/js/155.350a4754.js"><link rel="prefetch" href="/blog/assets/js/156.a949ae6e.js"><link rel="prefetch" href="/blog/assets/js/157.8637b505.js"><link rel="prefetch" href="/blog/assets/js/158.72639827.js"><link rel="prefetch" href="/blog/assets/js/159.c1d6a688.js"><link rel="prefetch" href="/blog/assets/js/16.fc0cfb3b.js"><link rel="prefetch" href="/blog/assets/js/160.f899c7ff.js"><link rel="prefetch" href="/blog/assets/js/161.4c333782.js"><link rel="prefetch" href="/blog/assets/js/162.5d0a3bdb.js"><link rel="prefetch" href="/blog/assets/js/163.16477dd9.js"><link rel="prefetch" href="/blog/assets/js/164.3f9903a6.js"><link rel="prefetch" href="/blog/assets/js/165.60229eac.js"><link rel="prefetch" href="/blog/assets/js/166.b3aa911f.js"><link rel="prefetch" href="/blog/assets/js/167.c5612176.js"><link rel="prefetch" href="/blog/assets/js/168.9fde2377.js"><link rel="prefetch" href="/blog/assets/js/169.ac8f3b4b.js"><link rel="prefetch" href="/blog/assets/js/17.123f2884.js"><link rel="prefetch" href="/blog/assets/js/170.71523ea8.js"><link rel="prefetch" href="/blog/assets/js/171.f5b6cf56.js"><link rel="prefetch" href="/blog/assets/js/172.2b3762d3.js"><link rel="prefetch" href="/blog/assets/js/173.e74fcee4.js"><link rel="prefetch" href="/blog/assets/js/174.50cae5bb.js"><link rel="prefetch" href="/blog/assets/js/175.fbcd6c68.js"><link rel="prefetch" href="/blog/assets/js/176.145977de.js"><link rel="prefetch" href="/blog/assets/js/177.5be5e16f.js"><link rel="prefetch" href="/blog/assets/js/178.b573e691.js"><link rel="prefetch" href="/blog/assets/js/179.de54c3ef.js"><link rel="prefetch" href="/blog/assets/js/18.87a28c0e.js"><link rel="prefetch" href="/blog/assets/js/180.a332dd47.js"><link rel="prefetch" href="/blog/assets/js/181.91baa332.js"><link rel="prefetch" href="/blog/assets/js/182.909f3b53.js"><link rel="prefetch" href="/blog/assets/js/183.87b9339b.js"><link rel="prefetch" href="/blog/assets/js/184.3afdc991.js"><link rel="prefetch" href="/blog/assets/js/185.0bfc9f36.js"><link rel="prefetch" href="/blog/assets/js/186.94b10618.js"><link rel="prefetch" href="/blog/assets/js/187.6f17d606.js"><link rel="prefetch" href="/blog/assets/js/188.8edfbcfc.js"><link rel="prefetch" href="/blog/assets/js/189.8b9c65da.js"><link rel="prefetch" href="/blog/assets/js/19.affaa69c.js"><link rel="prefetch" href="/blog/assets/js/190.b26b8cc2.js"><link rel="prefetch" href="/blog/assets/js/191.72a63261.js"><link rel="prefetch" href="/blog/assets/js/192.f34e6c84.js"><link rel="prefetch" href="/blog/assets/js/193.65acdfff.js"><link rel="prefetch" href="/blog/assets/js/194.8dd2e75d.js"><link rel="prefetch" href="/blog/assets/js/195.3e3bb64e.js"><link rel="prefetch" href="/blog/assets/js/196.3ec67132.js"><link rel="prefetch" href="/blog/assets/js/197.7b24f135.js"><link rel="prefetch" href="/blog/assets/js/198.bb9870c6.js"><link rel="prefetch" href="/blog/assets/js/199.d193c57f.js"><link rel="prefetch" href="/blog/assets/js/20.3d06088c.js"><link rel="prefetch" href="/blog/assets/js/200.147b1550.js"><link rel="prefetch" href="/blog/assets/js/201.ef337f6c.js"><link rel="prefetch" href="/blog/assets/js/202.4470d6b4.js"><link rel="prefetch" href="/blog/assets/js/203.d071cab2.js"><link rel="prefetch" href="/blog/assets/js/204.ba3c5f07.js"><link rel="prefetch" href="/blog/assets/js/205.811678dd.js"><link rel="prefetch" href="/blog/assets/js/206.b917b6b7.js"><link rel="prefetch" href="/blog/assets/js/207.7c35da99.js"><link rel="prefetch" href="/blog/assets/js/208.e1abdfd8.js"><link rel="prefetch" href="/blog/assets/js/209.1f3a2fd6.js"><link rel="prefetch" href="/blog/assets/js/21.bed5d766.js"><link rel="prefetch" href="/blog/assets/js/210.f37eac13.js"><link rel="prefetch" href="/blog/assets/js/211.34a14c5e.js"><link rel="prefetch" href="/blog/assets/js/22.4aaa0ae7.js"><link rel="prefetch" href="/blog/assets/js/23.e8780e85.js"><link rel="prefetch" href="/blog/assets/js/24.7ba57968.js"><link rel="prefetch" href="/blog/assets/js/25.1721be77.js"><link rel="prefetch" href="/blog/assets/js/26.2cedf041.js"><link rel="prefetch" href="/blog/assets/js/27.bab6dd46.js"><link rel="prefetch" href="/blog/assets/js/28.e979b0a3.js"><link rel="prefetch" href="/blog/assets/js/29.8884d543.js"><link rel="prefetch" href="/blog/assets/js/30.5b6aa96d.js"><link rel="prefetch" href="/blog/assets/js/31.aaf78fdc.js"><link rel="prefetch" href="/blog/assets/js/32.a7297c19.js"><link rel="prefetch" href="/blog/assets/js/33.b53c2142.js"><link rel="prefetch" href="/blog/assets/js/34.ba379dc5.js"><link rel="prefetch" href="/blog/assets/js/35.62ecd5d9.js"><link rel="prefetch" href="/blog/assets/js/36.85b277f5.js"><link rel="prefetch" href="/blog/assets/js/37.76ff9c40.js"><link rel="prefetch" href="/blog/assets/js/38.3771a351.js"><link rel="prefetch" href="/blog/assets/js/39.6c4e3054.js"><link rel="prefetch" href="/blog/assets/js/4.386a9765.js"><link rel="prefetch" href="/blog/assets/js/40.cd30caf6.js"><link rel="prefetch" href="/blog/assets/js/41.dba3cc3a.js"><link rel="prefetch" href="/blog/assets/js/42.29085898.js"><link rel="prefetch" href="/blog/assets/js/43.c14e8438.js"><link rel="prefetch" href="/blog/assets/js/44.3f16ad2d.js"><link rel="prefetch" href="/blog/assets/js/45.406c91a2.js"><link rel="prefetch" href="/blog/assets/js/46.179ac24d.js"><link rel="prefetch" href="/blog/assets/js/47.95cc0cbc.js"><link rel="prefetch" href="/blog/assets/js/48.303a0107.js"><link rel="prefetch" href="/blog/assets/js/49.76ae554e.js"><link rel="prefetch" href="/blog/assets/js/5.c33fd922.js"><link rel="prefetch" href="/blog/assets/js/50.90d9251c.js"><link rel="prefetch" href="/blog/assets/js/51.51c63cc6.js"><link rel="prefetch" href="/blog/assets/js/52.1251c83c.js"><link rel="prefetch" href="/blog/assets/js/53.bf0e209a.js"><link rel="prefetch" href="/blog/assets/js/54.0251ff8d.js"><link rel="prefetch" href="/blog/assets/js/55.a803e321.js"><link rel="prefetch" href="/blog/assets/js/56.edc7021f.js"><link rel="prefetch" href="/blog/assets/js/57.4e9c4a5b.js"><link rel="prefetch" href="/blog/assets/js/58.5cf99eff.js"><link rel="prefetch" href="/blog/assets/js/59.66711d70.js"><link rel="prefetch" href="/blog/assets/js/6.24147b89.js"><link rel="prefetch" href="/blog/assets/js/60.436e49ed.js"><link rel="prefetch" href="/blog/assets/js/61.f3e7d263.js"><link rel="prefetch" href="/blog/assets/js/62.5cea03cc.js"><link rel="prefetch" href="/blog/assets/js/63.4cf14abb.js"><link rel="prefetch" href="/blog/assets/js/64.33daaa60.js"><link rel="prefetch" href="/blog/assets/js/65.65dda029.js"><link rel="prefetch" href="/blog/assets/js/66.63fa22f8.js"><link rel="prefetch" href="/blog/assets/js/67.6606a12d.js"><link rel="prefetch" href="/blog/assets/js/68.abbee439.js"><link rel="prefetch" href="/blog/assets/js/69.81bf065f.js"><link rel="prefetch" href="/blog/assets/js/7.c4b841ce.js"><link rel="prefetch" href="/blog/assets/js/70.a889812c.js"><link rel="prefetch" href="/blog/assets/js/71.a4faabff.js"><link rel="prefetch" href="/blog/assets/js/72.b8ab33ed.js"><link rel="prefetch" href="/blog/assets/js/73.6d40621d.js"><link rel="prefetch" href="/blog/assets/js/74.4c446a84.js"><link rel="prefetch" href="/blog/assets/js/75.1b692eb1.js"><link rel="prefetch" href="/blog/assets/js/76.32a324b7.js"><link rel="prefetch" href="/blog/assets/js/77.470a107b.js"><link rel="prefetch" href="/blog/assets/js/78.4c479cdf.js"><link rel="prefetch" href="/blog/assets/js/79.09fd9dd7.js"><link rel="prefetch" href="/blog/assets/js/8.66c9bb58.js"><link rel="prefetch" href="/blog/assets/js/80.eb391019.js"><link rel="prefetch" href="/blog/assets/js/81.b5772763.js"><link rel="prefetch" href="/blog/assets/js/82.0e50d170.js"><link rel="prefetch" href="/blog/assets/js/83.9da4150f.js"><link rel="prefetch" href="/blog/assets/js/84.45a82c9c.js"><link rel="prefetch" href="/blog/assets/js/85.7d0a8e92.js"><link rel="prefetch" href="/blog/assets/js/86.c1daa495.js"><link rel="prefetch" href="/blog/assets/js/87.706ebfbf.js"><link rel="prefetch" href="/blog/assets/js/88.b5a31fba.js"><link rel="prefetch" href="/blog/assets/js/89.465f64fd.js"><link rel="prefetch" href="/blog/assets/js/9.202ee023.js"><link rel="prefetch" href="/blog/assets/js/90.49b83b4c.js"><link rel="prefetch" href="/blog/assets/js/91.6a578526.js"><link rel="prefetch" href="/blog/assets/js/92.a208e4c4.js"><link rel="prefetch" href="/blog/assets/js/93.c7177118.js"><link rel="prefetch" href="/blog/assets/js/94.31239f5f.js"><link rel="prefetch" href="/blog/assets/js/95.00ae72a6.js"><link rel="prefetch" href="/blog/assets/js/96.03b21e37.js"><link rel="prefetch" href="/blog/assets/js/97.b6b6dbdf.js"><link rel="prefetch" href="/blog/assets/js/98.4ab95ba9.js"><link rel="prefetch" href="/blog/assets/js/99.701d9694.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.5afabf7a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7a6c954e><div data-v-7a6c954e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-7a6c954e data-v-7a6c954e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-548f7490 data-v-7a6c954e data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490>PG-伴我同行</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>PG</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-7a6c954e><header class="navbar" data-v-7a6c954e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="favicon.ico" alt="PG-伴我同行" class="logo"> <span class="site-name">PG-伴我同行</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/blog/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/blog/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/blog/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/PGthirteen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7a6c954e></div> <aside class="sidebar" data-v-7a6c954e><div class="personal-info-wrapper" data-v-ec2c9702 data-v-7a6c954e><img src="https://avatars.githubusercontent.com/u/130121603?v=4" alt="author-avatar" class="personal-img" data-v-ec2c9702> <h3 class="name" data-v-ec2c9702>
+    PG
+  </h3> <div class="num" data-v-ec2c9702><div data-v-ec2c9702><h3 data-v-ec2c9702>42</h3> <h6 data-v-ec2c9702>文章</h6></div> <div data-v-ec2c9702><h3 data-v-ec2c9702>10</h3> <h6 data-v-ec2c9702>标签</h6></div></div> <hr data-v-ec2c9702></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/blog/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/blog/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/blog/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/PGthirteen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>css学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React学习路线</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/docs/foo/React/Context与Reducer.html" class="sidebar-link">Context与Reducer</a></li><li><a href="/blog/docs/foo/React/Hooks与事件绑定.html" class="sidebar-link">Hooks与事件绑定</a></li><li><a href="/blog/docs/foo/React/Hooks与普通函数的区别.html" class="sidebar-link">Hooks与普通函数的区别</a></li><li><a href="/blog/docs/foo/React/Hooks中的useState.html" class="sidebar-link">Hooks中的useState</a></li><li><a href="/blog/docs/foo/React/Mobx与Redux的异同.html" class="sidebar-link">Mobx与Redux的异同</a></li><li><a href="/blog/docs/foo/React/ReactRouter的实现.html" class="sidebar-link">ReactRouter的实现</a></li><li><a href="/blog/docs/foo/React/React中diff算法的理解.html" class="sidebar-link">React中diff算法的理解</a></li><li><a href="/blog/docs/foo/React/React中JSX的理解.html" class="sidebar-link">React中JSX的理解</a></li><li><a href="/blog/docs/foo/React/React中refs的理解.html" class="sidebar-link">React中refs的理解</a></li><li><a href="/blog/docs/foo/React/React中的合成事件.html" class="sidebar-link">React中的合成事件</a></li><li><a href="/blog/docs/foo/React/React中的纯组件.html" class="sidebar-link">React中的纯组件</a></li><li><a href="/blog/docs/foo/React/React中的高阶组件.html" class="sidebar-link">React中的高阶组件</a></li><li><a href="/blog/docs/foo/React/React中组件间通信的方式.html" class="sidebar-link">React中组件间通信的方式</a></li><li><a href="/blog/docs/foo/React/React生命周期.html" class="sidebar-link">React生命周期</a></li><li><a href="/blog/docs/foo/React/React组件复用的方式.html" class="active sidebar-link">React组件复用的方式</a></li><li><a href="/blog/docs/foo/React/React组件的state和props.html" class="sidebar-link">React组件的state和props</a></li><li><a href="/blog/docs/foo/React/React虚拟DOM的理解.html" class="sidebar-link">React虚拟DOM的理解</a></li><li><a href="/blog/docs/foo/React/setState同步异步场景.html" class="sidebar-link">setState同步异步场景</a></li><li><a href="/blog/docs/foo/React/useEffect与useLayoutEffect.html" class="sidebar-link">useEffect与useLayoutEffect</a></li><li><a href="/blog/docs/foo/React/useMemo与useCallback.html" class="sidebar-link">useMemo与useCallback</a></li><li><a href="/blog/docs/foo/React/受控组件和非受控组件.html" class="sidebar-link">受控组件和非受控组件</a></li><li><a href="/blog/docs/foo/React/手写useState与useEffect.html" class="sidebar-link">手写useState与useEffect</a></li><li><a href="/blog/docs/foo/React/有状态和无状态组件.html" class="sidebar-link">有状态和无状态组件</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue学习路线</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-548f7490 data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>PG</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-7a6c954e><main class="page"><div class="page-title" style="display:none;"><h1>React组件复用的方式</h1> <div data-v-01d8a6a8><i class="iconfont reco-account" data-v-01d8a6a8><span data-v-01d8a6a8>PG</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="react组件复用的方式"><a href="#react组件复用的方式" class="header-anchor">#</a> React组件复用的方式</h1> <p>现前端的工程化越发重要，虽然使用<code>Ctrl+C</code>与<code>Ctrl+V</code>同样能够完成需求，但是一旦面临修改那就是一项庞大的任务，于是减少代码的拷贝，增加封装复用能力，实现可维护、可复用的代码就变得尤为重要，在<code>React</code>中组件是代码复用的主要单元，基于组合的组件复用机制相当优雅，而对于更细粒度的逻辑(状态逻辑、行为逻辑等)，复用起来却不那么容易，很难把状态逻辑拆出来作为一个可复用的函数或组件，实际上在<code>Hooks</code>出现之前，都缺少一种简单直接的组件行为扩展方式，对于<code>Mixin</code>、<code>HOC</code>、<code>Render Props</code>都算是在既有(组件机制的)游戏规则下探索出来的上层模式，一直没有从根源上很好地解决组件间逻辑复用的问题，直到<code>Hooks</code>登上舞台，下面我们就来介绍一下<code>Mixin</code>、<code>HOC</code>、<code>Render Props</code>、<code>Hooks</code>四种组件间复用的方式。</p> <h2 id="mixin"><a href="#mixin" class="header-anchor">#</a> Mixin</h2> <p>当然<code>React</code>很久之前就不再建议使用<code>Mixin</code>作为复用的解决方案，但是现在依旧能通过<code>create-react-class</code>提供对<code>Mixin</code>的支持，此外注意在以<code>ES6</code>的<code>class</code>方式声明组件时是不支持<code>Mixin</code>的。<br> <code>Mixins</code>允许多个<code>React</code>组件之间共享代码，它们非常类似于<code>Python</code>中的<code>mixins</code>或<code>PHP</code>中的<code>traits</code>，<code>Mixin</code>方案的出现源自一种<code>OOP</code>直觉，只在早期提供了<code>React.createClass() API</code>(<code>React v15.5.0</code>正式废弃，移至<code>create-react-class</code>)来定义组件，自然而然地，(类)继承就成了一种直觉性的尝试，而在<code>JavaScript</code>基于原型的扩展模式下，类似于继承的<code>Mixin</code>方案就成了一个不错的解决方案，<code>Mixin</code>主要用来解决生命周期逻辑和状态逻辑的复用问题，允许从外部扩展组件生命周期，在<code>Flux</code>等模式中尤为重要，但是在不断实践中也出现了很多缺陷:</p> <ul><li>组件与<code>Mixin</code>之间存在隐式依赖(<code>Mixin</code>经常依赖组件的特定方法，但在定义组件时并不知道这种依赖关系)。</li> <li>多个<code>Mixin</code>之间可能产生冲突(比如定义了相同的<code>state</code>字段)。</li> <li><code>Mixin</code>倾向于增加更多状态，这降低了应用的可预测性，导致复杂度剧增。</li> <li>隐式依赖导致依赖关系不透明，维护成本和理解成本迅速攀升。</li> <li>难以快速理解组件行为，需要全盘了解所有依赖<code>Mixin</code>的扩展行为，及其之间的相互影响</li> <li>组件自身的方法和<code>state</code>字段不敢轻易删改，因为难以确定有没有<code>Mixin</code>依赖它。</li> <li><code>Mixin</code>也难以维护，因为<code>Mixin</code>逻辑最后会被打平合并到一起，很难搞清楚一个<code>Mixin</code>的输入输出。</li></ul> <p>毫无疑问，这些问题是致命的，所以，<code>Reactv0.13.0</code>放弃了<code>Mixin</code>静态横切(类似于继承的复用)，转而走向<code>HOC</code>高阶组件(类似于组合的复用)。</p> <h3 id="示例"><a href="#示例" class="header-anchor">#</a> 示例</h3> <p>上古版本示例，一个通用的场景是<code>:</code>一个组件需要定期更新，用<code>setInterval()</code>做很容易，但当不需要它的时候取消定时器来节省内存是非常重要的，<code>React</code>提供生命周期方法来告知组件创建或销毁的时间，下面的<code>Mixin</code>，使用<code>setInterval()</code>并保证在组件销毁时清理定时器。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var SetIntervalMixin = {
+  componentWillMount: function() {
+    this.intervals = [];
+  },
+  setInterval: function() {
+    this.intervals.push(setInterval.apply(null, arguments));
+  },
+  componentWillUnmount: function() {
+    this.intervals.forEach(clearInterval);
+  }
+};
+
+var TickTock = React.createClass({
+  mixins: [SetIntervalMixin], // 引用 mixin
+  getInitialState: function() {
+    return {seconds: 0};
+  },
+  componentDidMount: function() {
+    this.setInterval(this.tick, 1000); // 调用 mixin 的方法
+  },
+  tick: function() {
+    this.setState({seconds: this.state.seconds + 1});
+  },
+  render: function() {
+    return (
+      &lt;p&gt;
+        React has been running for {this.state.seconds} seconds.
+      &lt;/p&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;TickTock /&gt;,
+  document.getElementById(&quot;example&quot;)
+);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h2 id="hoc"><a href="#hoc" class="header-anchor">#</a> HOC</h2> <p><code>Mixin</code>之后，<code>HOC</code>高阶组件担起重任，成为组件间逻辑复用的推荐方案，高阶组件从名字上就透漏出高级的气息，实际上这个概念应该是源自于<code>JavaScript</code>的高阶函数，高阶函数就是接受函数作为输入或者输出的函数，可以想到柯里化就是一种高阶函数，同样在<code>React</code>文档上也给出了高阶组件的定义，高阶组件是接收组件并返回新组件的函数。具体的意思就是<code>:</code>高阶组件可以看作<code>React</code>对装饰模式的一种实现，高阶组件就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件，他会返回一个增强的<code>React</code>组件，高阶组件可以让我们的代码更具有复用性，逻辑性与抽象性，可以对<code>render</code>方法进行劫持，也可以控制<code>props</code>与<code>state</code>等。<br>
+对比<code>Mixin</code>与<code>HOC</code>，<code>Mixin</code>是一种混入的模式，在实际使用中<code>Mixin</code>的作用还是非常强大的，能够使得我们在多个组件中共用相同的方法，但同样也会给组件不断增加新的方法和属性，组件本身不仅可以感知，甚至需要做相关的处理(例如命名冲突、状态维护等)，一旦混入的模块变多时，整个组件就变的难以维护，<code>Mixin</code>可能会引入不可见的属性，例如在渲染组件中使用<code>Mixin</code>方法，给组件带来了不可见的属性<code>props</code>和状态<code>state</code>，并且<code>Mixin</code>可能会相互依赖，相互耦合，不利于代码维护，此外不同的<code>Mixin</code>中的方法可能会相互冲突。之前<code>React</code>官方建议使用<code>Mixin</code>用于解决横切关注点相关的问题，但由于使用<code>Mixin</code>可能会产生更多麻烦，所以官方现在推荐使用<code>HOC</code>。高阶组件<code>HOC</code>属于函数式编程<code>functional programming</code>思想，对于被包裹的组件时不会感知到高阶组件的存在，而高阶组件返回的组件会在原来的组件之上具有功能增强的效果，基于此<code>React</code>官方推荐使用高阶组件。<br> <code>HOC</code>虽然没有那么多致命问题，但也存在一些小缺陷:</p> <ul><li>扩展性限制<code>: HOC</code>并不能完全替代<code>Mixin</code>，一些场景下，<code>Mixin</code>可以而<code>HOC</code>做不到，比如<code>PureRenderMixin</code>，因为<code>HOC</code>无法从外部访问子组件的<code>State</code>，同时通过<code>shouldComponentUpdate</code>滤掉不必要的更新，因此，<code>React</code>在支持<code>ES6Class</code>之后提供了<code>React.PureComponent</code>来解决这个问题。</li> <li><code>Ref</code>传递问题<code>: Ref</code>被隔断，<code>Ref</code>的传递问题在层层包装下相当恼人，函数<code>Ref</code>能够缓解一部分(让<code>HOC</code>得以获知节点创建与销毁)，以致于后来有了<code>React.forwardRef API</code>。</li> <li><code>WrapperHell: HOC</code>泛滥，出现<code>WrapperHell</code>(没有包一层解决不了的问题，如果有，那就包两层)，多层抽象同样增加了复杂度和理解成本，这是最关键的缺陷，而<code>HOC</code>模式下没有很好的解决办法。</li></ul> <h3 id="示例-2"><a href="#示例-2" class="header-anchor">#</a> 示例</h3> <p>具体而言，高阶组件是参数为组件，返回值为新组件的函数，组件是将<code>props</code>转换为<code>UI</code>，而高阶组件是将组件转换为另一个组件。<code>HOC</code>在<code>React</code>的第三方库中很常见，例如<code>Redux</code>的<code>connect</code>和<code>Relay</code>的<code>createFragmentContainer</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 高阶组件定义
+const higherOrderComponent = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        // ...
+        render() {
+          return &lt;WrappedComponent {...this.props} /&gt;;
+        }
+  };
+}
+
+// 普通组件定义
+class WrappedComponent extends React.Component{
+    render(){
+        //....
+    }
+}
+
+// 返回被高阶组件包装过的增强组件
+const EnhancedComponent = higherOrderComponent(WrappedComponent);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>在这里要注意，不要试图以任何方式在<code>HOC</code>中修改组件原型，而应该使用组合的方式，通过将组件包装在容器组件中实现功能。通常情况下，实现高阶组件的方式有以下两种:</p> <ul><li>属性代理<code>Props Proxy</code>。</li> <li>反向继承<code>Inheritance Inversion</code>。</li></ul> <h4 id="属性代理"><a href="#属性代理" class="header-anchor">#</a> 属性代理</h4> <p>例如我们可以为传入的组件增加一个存储中的<code>id</code>属性值，通过高阶组件我们就可以为这个组件新增一个<code>props</code>，当然我们也可以对在<code>JSX</code>中的<code>WrappedComponent</code>组件中<code>props</code>进行操作，注意不是操作传入的<code>WrappedComponent</code>类，我们不应该直接修改传入的组件，而可以在组合的过程中对其操作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent, store) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        render() {
+            const newProps = {
+                id: store.id
+            }
+            return &lt;WrappedComponent
+                {...this.props}
+                {...newProps}
+            /&gt;;
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>我们也可以利用高阶组件将新组件的状态装入到被包装组件中，例如我们可以使用高阶组件将非受控组件转化为受控组件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class WrappedComponent extends React.Component {
+    render() {
+        return &lt;input name=&quot;name&quot; /&gt;;
+    }
+}
+
+const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { name: &quot;&quot; };
+        }
+        render() {
+            const newProps = {
+                value: this.state.name,
+                onChange: e =&gt; this.setState({name: e.target.value}),
+            }
+            return &lt;WrappedComponent 
+                {...this.props} 
+                {...newProps} 
+            /&gt;;
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>或者我们的目的是将其使用其他组件包裹起来用以达成布局或者是样式的目的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        render() {
+            return (
+                &lt;div class=&quot;layout&quot;&gt;
+                    &lt;WrappedComponent  {...this.props} /&gt;
+                &lt;/div&gt;
+            );
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h4 id="反向继承"><a href="#反向继承" class="header-anchor">#</a> 反向继承</h4> <p>反向继承是指返回的组件去继承之前的组件，在反向继承中我们可以做非常多的操作，修改<code>state</code>、<code>props</code>甚至是翻转<code>Element Tree</code>，反向继承有一个重要的点，反向继承不能保证完整的子组件树被解析，也就是说解析的元素树中包含了组件(函数类型或者<code>Class</code>类型)，就不能再操作组件的子组件了。<br>
+当我们使用反向继承实现高阶组件的时候可以通过渲染劫持来控制渲染，具体是指我们可以有意识地控制<code>WrappedComponent</code>的渲染过程，从而控制渲染控制的结果，例如我们可以根据部分参数去决定是否渲染组件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends WrappedComponent {
+        render() {
+            return this.props.isRender &amp;&amp; super.render();  
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>甚至我们可以通过重写的方式劫持原组件的生命周期。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends WrappedComponent {
+        componentDidMount(){
+          // ...
+        }
+        render() {
+            return super.render();  
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>由于实际上是继承关系，我们可以去读取组件的<code>props</code>和<code>state</code>，如果有必要的话，甚至可以修改增加、修改和删除<code>props</code>和<code>state</code>，当然前提是修改带来的风险需要你自己来控制。在一些情况下，我们可能需要为高阶属性传入一些参数，那我们就可以通过柯里化的形式传入参数，配合高阶组件可以完成对组件的类似于闭包的操作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOCFactoryFactory = (params) =&gt; {
+    // 此处操作params
+    return (WrappedComponent) =&gt; {
+        return class EnhancedComponent extends WrappedComponent {
+            render() {
+                return params.isRender &amp;&amp; this.props.isRender &amp;&amp; super.render();
+            }
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="注意"><a href="#注意" class="header-anchor">#</a> 注意</h3> <h4 id="不要改变原始组件"><a href="#不要改变原始组件" class="header-anchor">#</a> 不要改变原始组件</h4> <p>不要试图在<code>HOC</code>中修改组件原型，或以其他方式改变它。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function logProps(InputComponent) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
+    console.log(&quot;Current props: &quot;, this.props);
+    console.log(&quot;Previous props: &quot;, prevProps);
+  };
+  // 返回原始的 input 组件，其已经被修改。
+  return InputComponent;
+}
+
+// 每次调用 logProps 时，增强组件都会有 log 输出。
+const EnhancedComponent = logProps(InputComponent);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>这样做会产生一些不良后果，其一是输入组件再也无法像<code>HOC</code>增强之前那样使用了，更严重的是，如果你再用另一个同样会修改<code>componentDidUpdate</code>的<code>HOC</code>增强它，那么前面的<code>HOC</code>就会失效，同时这个<code>HOC</code>也无法应用于没有生命周期的函数组件。<br>
+修改传入组件的<code>HOC</code>是一种糟糕的抽象方式，调用者必须知道他们是如何实现的，以避免与其他<code>HOC</code>发生冲突。<code>HOC</code>不应该修改传入组件，而应该使用组合的方式，通过将组件包装在容器组件中实现功能。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function logProps(WrappedComponent) {
+  return class extends React.Component {
+    componentDidUpdate(prevProps) {
+      console.log(&quot;Current props: &quot;, this.props);
+      console.log(&quot;Previous props: &quot;, prevProps);
+    }
+    render() {
+      // 将 input 组件包装在容器中，而不对其进行修改，Nice!
+      return &lt;WrappedComponent {...this.props} /&gt;;
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h4 id="过滤props"><a href="#过滤props" class="header-anchor">#</a> 过滤props</h4> <p><code>HOC</code>为组件添加特性，自身不应该大幅改变约定，<code>HOC</code>返回的组件与原组件应保持类似的接口。<code>HOC</code>应该透传与自身无关的<code>props</code>，大多数<code>HOC</code>都应该包含一个类似于下面的<code>render</code>方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>render() {
+  // 过滤掉额外的 props，且不要进行透传
+  const { extraProp, ...passThroughProps } = this.props;
+
+  // 将 props 注入到被包装的组件中。
+  // 通常为 state 的值或者实例方法。
+  const injectedProp = someStateOrInstanceMethod;
+
+  // 将 props 传递给被包装组件
+  return (
+    &lt;WrappedComponent
+      injectedProp={injectedProp}
+      {...passThroughProps}
+    /&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h4 id="最大化可组合性"><a href="#最大化可组合性" class="header-anchor">#</a> 最大化可组合性</h4> <p>并不是所有的<code>HOC</code>都一样，有时候它仅接受一个参数，也就是被包裹的组件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const NavbarWithRouter = withRouter(Navbar);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><code>HOC</code>通常可以接收多个参数，比如在<code>Relay</code>中<code>HOC</code>额外接收了一个配置对象用于指定组件的数据依赖。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const CommentWithRelay = Relay.createContainer(Comment, config);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>最常见的<code>HOC</code>签名如下，<code>connect</code>是一个返回高阶组件的高阶函数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// React Redux 的 `connect` 函数
+const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
+
+// connect 是一个函数，它的返回值为另外一个函数。
+const enhance = connect(commentListSelector, commentListActions);
+// 返回值为 HOC，它会返回已经连接 Redux store 的组件
+const ConnectedComment = enhance(CommentList);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>这种形式可能看起来令人困惑或不必要，但它有一个有用的属性，像<code>connect</code>函数返回的单参数<code>HOC</code>具有签名<code>Component =&gt; Component</code>，输出类型与输入类型相同的函数很容易组合在一起。同样的属性也允许<code>connect</code>和其他<code>HOC</code>承担装饰器的角色。此外许多第三方库都提供了<code>compose</code>工具函数，包括<code>lodash</code>、<code>Redux</code>和<code>Ramda</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
+
+// 你可以编写组合工具函数
+// compose(f, g, h) 等同于 (...args) =&gt; f(g(h(...args)))
+const enhance = compose(
+  // 这些都是单参数的 HOC
+  withRouter,
+  connect(commentSelector)
+)
+const EnhancedComponent = enhance(WrappedComponent)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="不要在render方法中使用hoc"><a href="#不要在render方法中使用hoc" class="header-anchor">#</a> 不要在render方法中使用HOC</h4> <p><code>React</code>的<code>diff</code>算法使用组件标识来确定它是应该更新现有子树还是将其丢弃并挂载新子树，如果从<code>render</code>返回的组件与前一个渲染中的组件相同<code>===</code>，则<code>React</code>通过将子树与新子树进行区分来递归更新子树，如果它们不相等，则完全卸载前一个子树。<br>
+通常在使用的时候不需要考虑这点，但对<code>HOC</code>来说这一点很重要，因为这代表着你不应在组件的<code>render</code>方法中对一个组件应用<code>HOC</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>render() {
+  // 每次调用 render 函数都会创建一个新的 EnhancedComponent
+  // EnhancedComponent1 !== EnhancedComponent2
+  const EnhancedComponent = enhance(MyComponent);
+  // 这将导致子树每次渲染都会进行卸载，和重新挂载的操作！
+  return &lt;EnhancedComponent /&gt;;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>这不仅仅是性能问题，重新挂载组件会导致该组件及其所有子组件的状态丢失，如果在组件之外创建<code>HOC</code>，这样一来组件只会创建一次。因此每次<code>render</code>时都会是同一个组件，一般来说，这跟你的预期表现是一致的。在极少数情况下，你需要动态调用<code>HOC</code>，你可以在组件的生命周期方法或其构造函数中进行调用。</p> <h4 id="务必复制静态方法"><a href="#务必复制静态方法" class="header-anchor">#</a> 务必复制静态方法</h4> <p>有时在<code>React</code>组件上定义静态方法很有用，例如<code>Relay</code>容器暴露了一个静态方法<code>getFragment</code>以方便组合<code>GraphQL</code>片段。但是当你将<code>HOC</code>应用于组件时，原始组件将使用容器组件进行包装，这意味着新组件没有原始组件的任何静态方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 定义静态函数
+WrappedComponent.staticMethod = function() {/*...*/}
+// 现在使用 HOC
+const EnhancedComponent = enhance(WrappedComponent);
+
+// 增强组件没有 staticMethod
+typeof EnhancedComponent.staticMethod === &quot;undefined&quot; // true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>为了解决这个问题，你可以在返回之前把这些方法拷贝到容器组件上。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function enhance(WrappedComponent) {
+  class Enhance extends React.Component {/*...*/}
+  // 必须准确知道应该拷贝哪些方法 :(
+  Enhance.staticMethod = WrappedComponent.staticMethod;
+  return Enhance;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>但要这样做，你需要知道哪些方法应该被拷贝，你可以使用<code>hoist-non-react-statics</code>依赖自动拷贝所有非<code>React</code>静态方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import hoistNonReactStatic from &quot;hoist-non-react-statics&quot;;
+function enhance(WrappedComponent) {
+  class Enhance extends React.Component {/*...*/}
+  hoistNonReactStatic(Enhance, WrappedComponent);
+  return Enhance;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>除了导出组件，另一个可行的方案是再额外导出这个静态方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 使用这种方式代替...
+MyComponent.someFunction = someFunction;
+export default MyComponent;
+
+// ...单独导出该方法...
+export { someFunction };
+
+// ...并在要使用的组件中，import 它们
+import MyComponent, { someFunction } from &quot;./MyComponent.js&quot;;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="refs不会被传递"><a href="#refs不会被传递" class="header-anchor">#</a> Refs不会被传递</h4> <p>虽然高阶组件的约定是将所有<code>props</code>传递给被包装组件，但这对于<code>refs</code>并不适用，那是因为<code>ref</code>实际上并不是一个<code>prop</code>，就像<code>key</code>一样，它是由<code>React</code>专门处理的。如果将<code>ref</code>添加到<code>HOC</code>的返回组件中，则<code>ref</code>引用指向容器组件，而不是被包装组件，这个问题可以通过<code>React.forwardRef</code>这个<code>API</code>明确地将<code>refs</code>转发到内部的组件。。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function logProps(Component) {
+  class LogProps extends React.Component {
+    componentDidUpdate(prevProps) {
+      console.log('old props:', prevProps);
+      console.log('new props:', this.props);
+    }
+
+    render() {
+      const {forwardedRef, ...rest} = this.props;
+
+      // 将自定义的 prop 属性 “forwardedRef” 定义为 ref
+      return &lt;Component ref={forwardedRef} {...rest} /&gt;;
+    }
+  }
+
+  // 注意 React.forwardRef 回调的第二个参数 “ref”。
+  // 我们可以将其作为常规 prop 属性传递给 LogProps，例如 “forwardedRef”
+  // 然后它就可以被挂载到被 LogProps 包裹的子组件上。
+  return React.forwardRef((props, ref) =&gt; {
+    return &lt;LogProps {...props} forwardedRef={ref} /&gt;;
+  });
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="render-props"><a href="#render-props" class="header-anchor">#</a> Render Props</h2> <p>与<code>HOC</code>一样，<code>Render Props</code>也是一直以来都存在的元老级模式，<code>render props</code>指在一种<code>React</code>组件之间使用一个值为函数的<code>props</code>共享代码的简单技术，具有<code>render props</code>的组件接收一个函数，该函数返回一个<code>React</code>元素并调用它而不是实现一个自己的渲染逻辑，<code>render props</code>是一个用于告知组件需要渲染什么内容的函数<code>props</code>，也是组件逻辑复用的一种实现方式，简单来说就是在被复用的组件中，通过一个名为<code>render</code>(属性名也可以不是<code>render</code>，只要值是一个函数即可)的<code>prop</code>属性，该属性是一个函数，这个函数接受一个对象并返回一个子组件，会将这个函数参数中的对象作为<code>props</code>传入给新生成的组件，而在使用调用者组件这里，只需要决定这个组件在哪里渲染以及该以何种逻辑渲染并传入相关对象即可。<br>
+对比<code>HOC</code>与<code>Render Props</code>，技术上，二者都基于组件组合机制，<code>Render Props</code>拥有与<code>HOC</code>一样的扩展能力，称之为<code>Render Props</code>，并不是说只能用来复用渲染逻辑，而是表示在这种模式下，组件是通过<code>render</code>()组合起来的，类似于<code>HOC</code>模式下通过<code>Wrapper</code>的<code>render</code>()建立组合关系形式上，二者非常相像，同样都会产生一层<code>Wrapper</code>，而实际上<code>Render Props</code>与<code>HOC</code>甚至能够相互转换。<br>
+同样，<code>Render Props</code>也会存在一些问题:</p> <ul><li>数据流向更直观了，子孙组件可以很明确地看到数据来源，但本质上<code>Render Props</code>是基于闭包实现的，大量地用于组件的复用将不可避免地引入了<code>callback hell</code>问题。</li> <li>丢失了组件的上下文，因此没有<code>this.props</code>属性，不能像<code>HOC</code>那样访问<code>this.props.children</code>。</li></ul> <h3 id="示例-3"><a href="#示例-3" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;React&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;https://unpkg.com/react@17/umd/react.development.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/react-dom@17/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/babel&quot;&gt;
+class MouseTracker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { x: 0,  y: 0, }
+  }
+  handleMouseMove = (event) =&gt; {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+  render() {
+    return (
+      &lt;div onMouseMove={this.handleMouseMove}&gt;
+        {this.props.render(this.state)} {/* Render Props */}
+      &lt;/div&gt;
+    )
+  }
+}
+
+class MouseLocation extends React.Component {
+  render() {
+    return (
+      &lt;&gt;
+        &lt;h1&gt;请在此处移动鼠标&lt;/h1&gt;
+        &lt;p&gt;当前鼠标的位置是: x:{this.props.mouse.x} y:{this.props.mouse.y}&lt;/p&gt;
+      &lt;/&gt;
+    )
+  }
+}
+
+ReactDOM.render(
+  &lt;MouseTracker render={mouse =&gt; &lt;MouseLocation mouse={mouse} /&gt;}&gt;&lt;/MouseTracker&gt;, 
+  document.getElementById(&quot;root&quot;)
+);
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><h2 id="hooks"><a href="#hooks" class="header-anchor">#</a> Hooks</h2> <p>代码复用的解决方案层出不穷，但是整体来说代码复用还是很复杂的，这其中很大一部分原因在于细粒度代码复用不应该与组件复用捆绑在一起，<code>HOC</code>、<code>Render Props</code>等基于组件组合的方案，相当于先把要复用的逻辑包装成组件，再利用组件复用机制实现逻辑复用，自然就受限于组件复用，因而出现扩展能力受限、<code>Ref</code>隔断、<code>Wrapper Hell</code>等问题，那么我们就需要有一种简单直接的代码复用方式，函数，将可复用逻辑抽离成函数应该是最直接、成本最低的代码复用方式，但对于状态逻辑，仍然需要通过一些抽象模式(如<code>Observable</code>)才能实现复用，这正是<code>Hooks</code>的思路，将函数作为最小的代码复用单元，同时内置一些模式以简化状态逻辑的复用。比起上面提到的其它方案，<code>Hooks</code>让组件内逻辑复用不再与组件复用捆绑在一起，是真正在从下层去尝试解决(组件间)细粒度逻辑的复用问题此外，这种声明式逻辑复用方案将组件间的显式数据流与组合思想进一步延伸到了组件内。<br>
+当然<code>Hooks</code>也并非完美，只是就目前而言，其缺点如下:</p> <ul><li>额外的学习成本，主要在于<code>Functional Component</code>与<code>Class Component</code>之间的比较上。</li> <li>写法上有限制(不能出现在条件、循环中)，并且写法限制增加了重构成本。</li> <li>破坏了<code>PureComponent</code>、<code>React.memo</code>浅比较的性能优化效果，为了取最新的<code>props</code>和<code>state</code>，每次<code>render</code>()都要重新创建事件处函数。</li> <li>在闭包场景可能会引用到旧的<code>state</code>、<code>props</code>值。</li> <li>内部实现上不直观，依赖一份可变的全局状态，不再那么<code>pure</code>。</li> <li><code>React.memo</code>并不能完全替代<code>shouldComponentUpdate</code>(因为拿不到<code>state change</code>，只针对<code>props change</code>)。</li> <li><code>useState API</code>设计上不太完美。</li></ul> <h3 id="示例-4"><a href="#示例-4" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;React&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;https://unpkg.com/react@17/umd/react.development.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/react-dom@17/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/babel&quot;&gt;
+  const {useState, useEffect} = React;
+
+  function useMouseLocation(location){
+    return (
+      &lt;&gt;
+        &lt;h1&gt;请在此处移动鼠标&lt;/h1&gt;
+        &lt;p&gt;当前鼠标的位置是: x:{location.x} y:{location.y}&lt;/p&gt;
+      &lt;/&gt;
+    );
+  }
+
+  function MouseTracker(props){
+    const [x, setX] = useState(0);
+    const [y, setY] = useState(0);
+
+    function handleMouseMove(event){
+        setX(event.clientX);
+        setY(event.clientY);
+    }
+    return (
+      &lt;div onMouseMove={handleMouseMove}&gt;
+        {useMouseLocation({x, y})}
+      &lt;/div&gt;
+    )
+  }
+
+  ReactDOM.render(
+    &lt;MouseTracker/&gt;, 
+    document.getElementById(&quot;root&quot;)
+  );
+&lt;/script&gt;
+
+&lt;/html&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><h2 id="每日一题"><a href="#每日一题" class="header-anchor">#</a> 每日一题</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://github.com/WindrunnerMax/EveryDay
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://zhuanlan.zhihu.com/p/38136388
+https://juejin.cn/post/6844903910470057997
+https://juejin.cn/post/6844903850038525959
+https://my.oschina.net/u/4663041/blog/4588963
+https://zh-hans.reactjs.org/docs/hooks-intro.html
+https://zh-hans.reactjs.org/docs/hooks-effect.html
+https://react-cn.github.io/react/docs/reusable-components.html
+http://www.ayqy.net/blog/react%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%BB%E8%BE%91%E5%A4%8D%E7%94%A8/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:2;" data-v-248d85d6></canvas></div><!----><div class="RibbonAnimation"></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;left:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:1;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="https://sd-sycdn.kuwo.cn/5f1ba98baf65c6b1cadff971b47bb713/643752f9/resource/n3/39/21/2362952402.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://p3-pc.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2a5843a4b216933063cb2bcd6236cfbe.jpeg?from=2956013662" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://p3-pc.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2a5843a4b216933063cb2bcd6236cfbe.jpeg?from=2956013662);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>我落泪情绪零碎</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>周杰伦</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/blog/assets/js/app.5f46caf4.js" defer></script><script src="/blog/assets/js/3.ba706977.js" defer></script><script src="/blog/assets/js/1.5260e963.js" defer></script><script src="/blog/assets/js/143.4f3a996c.js" defer></script>
+  </body>
+</html>

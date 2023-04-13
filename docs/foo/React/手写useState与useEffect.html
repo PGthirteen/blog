@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>手写useState与useEffect | PG-伴我同行</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="favicon.ico">
+    <script src="/blog/assets/js/bodyClick.js"></script>
+    <meta name="description" content="this is my blog">
+    <link rel="preload" href="/blog/assets/css/0.styles.5afabf7a.css" as="style"><link rel="preload" href="/blog/assets/js/app.5f46caf4.js" as="script"><link rel="preload" href="/blog/assets/js/3.ba706977.js" as="script"><link rel="preload" href="/blog/assets/js/1.5260e963.js" as="script"><link rel="preload" href="/blog/assets/js/150.06d93455.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.7cd368c0.js"><link rel="prefetch" href="/blog/assets/js/100.27698622.js"><link rel="prefetch" href="/blog/assets/js/101.a1b93294.js"><link rel="prefetch" href="/blog/assets/js/102.aa6056f4.js"><link rel="prefetch" href="/blog/assets/js/103.b447d111.js"><link rel="prefetch" href="/blog/assets/js/104.5c6d6c73.js"><link rel="prefetch" href="/blog/assets/js/105.576d8260.js"><link rel="prefetch" href="/blog/assets/js/106.ec614c35.js"><link rel="prefetch" href="/blog/assets/js/107.322f701d.js"><link rel="prefetch" href="/blog/assets/js/108.f5a49a1d.js"><link rel="prefetch" href="/blog/assets/js/109.b0f047d2.js"><link rel="prefetch" href="/blog/assets/js/11.68af76a4.js"><link rel="prefetch" href="/blog/assets/js/110.8edc2cc3.js"><link rel="prefetch" href="/blog/assets/js/111.cfae58be.js"><link rel="prefetch" href="/blog/assets/js/112.769703b0.js"><link rel="prefetch" href="/blog/assets/js/113.732865ca.js"><link rel="prefetch" href="/blog/assets/js/114.557323d2.js"><link rel="prefetch" href="/blog/assets/js/115.5faa0a5b.js"><link rel="prefetch" href="/blog/assets/js/116.08a4dbc2.js"><link rel="prefetch" href="/blog/assets/js/117.b1764958.js"><link rel="prefetch" href="/blog/assets/js/118.1ff24d90.js"><link rel="prefetch" href="/blog/assets/js/119.de5a7702.js"><link rel="prefetch" href="/blog/assets/js/12.d896bc3a.js"><link rel="prefetch" href="/blog/assets/js/120.56c06010.js"><link rel="prefetch" href="/blog/assets/js/121.2c35519d.js"><link rel="prefetch" href="/blog/assets/js/122.bfa5f0ec.js"><link rel="prefetch" href="/blog/assets/js/123.42e4d466.js"><link rel="prefetch" href="/blog/assets/js/124.3f475806.js"><link rel="prefetch" href="/blog/assets/js/125.2cadb7fd.js"><link rel="prefetch" href="/blog/assets/js/126.390abcbb.js"><link rel="prefetch" href="/blog/assets/js/127.a8ff9188.js"><link rel="prefetch" href="/blog/assets/js/128.f9905b42.js"><link rel="prefetch" href="/blog/assets/js/129.7d5183cc.js"><link rel="prefetch" href="/blog/assets/js/13.14aff3d4.js"><link rel="prefetch" href="/blog/assets/js/130.6cb8ac69.js"><link rel="prefetch" href="/blog/assets/js/131.3700ed28.js"><link rel="prefetch" href="/blog/assets/js/132.2e791af6.js"><link rel="prefetch" href="/blog/assets/js/133.7e39726f.js"><link rel="prefetch" href="/blog/assets/js/134.68518486.js"><link rel="prefetch" href="/blog/assets/js/135.bae697f7.js"><link rel="prefetch" href="/blog/assets/js/136.572044db.js"><link rel="prefetch" href="/blog/assets/js/137.e1b9f7ca.js"><link rel="prefetch" href="/blog/assets/js/138.1ad64bb7.js"><link rel="prefetch" href="/blog/assets/js/139.c0d2e229.js"><link rel="prefetch" href="/blog/assets/js/14.12c1fe38.js"><link rel="prefetch" href="/blog/assets/js/140.7e4e68ef.js"><link rel="prefetch" href="/blog/assets/js/141.b2830e4e.js"><link rel="prefetch" href="/blog/assets/js/142.74764f35.js"><link rel="prefetch" href="/blog/assets/js/143.4f3a996c.js"><link rel="prefetch" href="/blog/assets/js/144.ed946c70.js"><link rel="prefetch" href="/blog/assets/js/145.94dbbd62.js"><link rel="prefetch" href="/blog/assets/js/146.fac19149.js"><link rel="prefetch" href="/blog/assets/js/147.47f9729c.js"><link rel="prefetch" href="/blog/assets/js/148.89045e0c.js"><link rel="prefetch" href="/blog/assets/js/149.bc09f7b7.js"><link rel="prefetch" href="/blog/assets/js/15.9b209aa7.js"><link rel="prefetch" href="/blog/assets/js/151.28d6f564.js"><link rel="prefetch" href="/blog/assets/js/152.e42704c8.js"><link rel="prefetch" href="/blog/assets/js/153.5c22e73d.js"><link rel="prefetch" href="/blog/assets/js/154.f13feff9.js"><link rel="prefetch" href="/blog/assets/js/155.350a4754.js"><link rel="prefetch" href="/blog/assets/js/156.a949ae6e.js"><link rel="prefetch" href="/blog/assets/js/157.8637b505.js"><link rel="prefetch" href="/blog/assets/js/158.72639827.js"><link rel="prefetch" href="/blog/assets/js/159.c1d6a688.js"><link rel="prefetch" href="/blog/assets/js/16.fc0cfb3b.js"><link rel="prefetch" href="/blog/assets/js/160.f899c7ff.js"><link rel="prefetch" href="/blog/assets/js/161.4c333782.js"><link rel="prefetch" href="/blog/assets/js/162.5d0a3bdb.js"><link rel="prefetch" href="/blog/assets/js/163.16477dd9.js"><link rel="prefetch" href="/blog/assets/js/164.3f9903a6.js"><link rel="prefetch" href="/blog/assets/js/165.60229eac.js"><link rel="prefetch" href="/blog/assets/js/166.b3aa911f.js"><link rel="prefetch" href="/blog/assets/js/167.c5612176.js"><link rel="prefetch" href="/blog/assets/js/168.9fde2377.js"><link rel="prefetch" href="/blog/assets/js/169.ac8f3b4b.js"><link rel="prefetch" href="/blog/assets/js/17.123f2884.js"><link rel="prefetch" href="/blog/assets/js/170.71523ea8.js"><link rel="prefetch" href="/blog/assets/js/171.f5b6cf56.js"><link rel="prefetch" href="/blog/assets/js/172.2b3762d3.js"><link rel="prefetch" href="/blog/assets/js/173.e74fcee4.js"><link rel="prefetch" href="/blog/assets/js/174.50cae5bb.js"><link rel="prefetch" href="/blog/assets/js/175.fbcd6c68.js"><link rel="prefetch" href="/blog/assets/js/176.145977de.js"><link rel="prefetch" href="/blog/assets/js/177.5be5e16f.js"><link rel="prefetch" href="/blog/assets/js/178.b573e691.js"><link rel="prefetch" href="/blog/assets/js/179.de54c3ef.js"><link rel="prefetch" href="/blog/assets/js/18.87a28c0e.js"><link rel="prefetch" href="/blog/assets/js/180.a332dd47.js"><link rel="prefetch" href="/blog/assets/js/181.91baa332.js"><link rel="prefetch" href="/blog/assets/js/182.909f3b53.js"><link rel="prefetch" href="/blog/assets/js/183.87b9339b.js"><link rel="prefetch" href="/blog/assets/js/184.3afdc991.js"><link rel="prefetch" href="/blog/assets/js/185.0bfc9f36.js"><link rel="prefetch" href="/blog/assets/js/186.94b10618.js"><link rel="prefetch" href="/blog/assets/js/187.6f17d606.js"><link rel="prefetch" href="/blog/assets/js/188.8edfbcfc.js"><link rel="prefetch" href="/blog/assets/js/189.8b9c65da.js"><link rel="prefetch" href="/blog/assets/js/19.affaa69c.js"><link rel="prefetch" href="/blog/assets/js/190.b26b8cc2.js"><link rel="prefetch" href="/blog/assets/js/191.72a63261.js"><link rel="prefetch" href="/blog/assets/js/192.f34e6c84.js"><link rel="prefetch" href="/blog/assets/js/193.65acdfff.js"><link rel="prefetch" href="/blog/assets/js/194.8dd2e75d.js"><link rel="prefetch" href="/blog/assets/js/195.3e3bb64e.js"><link rel="prefetch" href="/blog/assets/js/196.3ec67132.js"><link rel="prefetch" href="/blog/assets/js/197.7b24f135.js"><link rel="prefetch" href="/blog/assets/js/198.bb9870c6.js"><link rel="prefetch" href="/blog/assets/js/199.d193c57f.js"><link rel="prefetch" href="/blog/assets/js/20.3d06088c.js"><link rel="prefetch" href="/blog/assets/js/200.147b1550.js"><link rel="prefetch" href="/blog/assets/js/201.ef337f6c.js"><link rel="prefetch" href="/blog/assets/js/202.4470d6b4.js"><link rel="prefetch" href="/blog/assets/js/203.d071cab2.js"><link rel="prefetch" href="/blog/assets/js/204.ba3c5f07.js"><link rel="prefetch" href="/blog/assets/js/205.811678dd.js"><link rel="prefetch" href="/blog/assets/js/206.b917b6b7.js"><link rel="prefetch" href="/blog/assets/js/207.7c35da99.js"><link rel="prefetch" href="/blog/assets/js/208.e1abdfd8.js"><link rel="prefetch" href="/blog/assets/js/209.1f3a2fd6.js"><link rel="prefetch" href="/blog/assets/js/21.bed5d766.js"><link rel="prefetch" href="/blog/assets/js/210.f37eac13.js"><link rel="prefetch" href="/blog/assets/js/211.34a14c5e.js"><link rel="prefetch" href="/blog/assets/js/22.4aaa0ae7.js"><link rel="prefetch" href="/blog/assets/js/23.e8780e85.js"><link rel="prefetch" href="/blog/assets/js/24.7ba57968.js"><link rel="prefetch" href="/blog/assets/js/25.1721be77.js"><link rel="prefetch" href="/blog/assets/js/26.2cedf041.js"><link rel="prefetch" href="/blog/assets/js/27.bab6dd46.js"><link rel="prefetch" href="/blog/assets/js/28.e979b0a3.js"><link rel="prefetch" href="/blog/assets/js/29.8884d543.js"><link rel="prefetch" href="/blog/assets/js/30.5b6aa96d.js"><link rel="prefetch" href="/blog/assets/js/31.aaf78fdc.js"><link rel="prefetch" href="/blog/assets/js/32.a7297c19.js"><link rel="prefetch" href="/blog/assets/js/33.b53c2142.js"><link rel="prefetch" href="/blog/assets/js/34.ba379dc5.js"><link rel="prefetch" href="/blog/assets/js/35.62ecd5d9.js"><link rel="prefetch" href="/blog/assets/js/36.85b277f5.js"><link rel="prefetch" href="/blog/assets/js/37.76ff9c40.js"><link rel="prefetch" href="/blog/assets/js/38.3771a351.js"><link rel="prefetch" href="/blog/assets/js/39.6c4e3054.js"><link rel="prefetch" href="/blog/assets/js/4.386a9765.js"><link rel="prefetch" href="/blog/assets/js/40.cd30caf6.js"><link rel="prefetch" href="/blog/assets/js/41.dba3cc3a.js"><link rel="prefetch" href="/blog/assets/js/42.29085898.js"><link rel="prefetch" href="/blog/assets/js/43.c14e8438.js"><link rel="prefetch" href="/blog/assets/js/44.3f16ad2d.js"><link rel="prefetch" href="/blog/assets/js/45.406c91a2.js"><link rel="prefetch" href="/blog/assets/js/46.179ac24d.js"><link rel="prefetch" href="/blog/assets/js/47.95cc0cbc.js"><link rel="prefetch" href="/blog/assets/js/48.303a0107.js"><link rel="prefetch" href="/blog/assets/js/49.76ae554e.js"><link rel="prefetch" href="/blog/assets/js/5.c33fd922.js"><link rel="prefetch" href="/blog/assets/js/50.90d9251c.js"><link rel="prefetch" href="/blog/assets/js/51.51c63cc6.js"><link rel="prefetch" href="/blog/assets/js/52.1251c83c.js"><link rel="prefetch" href="/blog/assets/js/53.bf0e209a.js"><link rel="prefetch" href="/blog/assets/js/54.0251ff8d.js"><link rel="prefetch" href="/blog/assets/js/55.a803e321.js"><link rel="prefetch" href="/blog/assets/js/56.edc7021f.js"><link rel="prefetch" href="/blog/assets/js/57.4e9c4a5b.js"><link rel="prefetch" href="/blog/assets/js/58.5cf99eff.js"><link rel="prefetch" href="/blog/assets/js/59.66711d70.js"><link rel="prefetch" href="/blog/assets/js/6.24147b89.js"><link rel="prefetch" href="/blog/assets/js/60.436e49ed.js"><link rel="prefetch" href="/blog/assets/js/61.f3e7d263.js"><link rel="prefetch" href="/blog/assets/js/62.5cea03cc.js"><link rel="prefetch" href="/blog/assets/js/63.4cf14abb.js"><link rel="prefetch" href="/blog/assets/js/64.33daaa60.js"><link rel="prefetch" href="/blog/assets/js/65.65dda029.js"><link rel="prefetch" href="/blog/assets/js/66.63fa22f8.js"><link rel="prefetch" href="/blog/assets/js/67.6606a12d.js"><link rel="prefetch" href="/blog/assets/js/68.abbee439.js"><link rel="prefetch" href="/blog/assets/js/69.81bf065f.js"><link rel="prefetch" href="/blog/assets/js/7.c4b841ce.js"><link rel="prefetch" href="/blog/assets/js/70.a889812c.js"><link rel="prefetch" href="/blog/assets/js/71.a4faabff.js"><link rel="prefetch" href="/blog/assets/js/72.b8ab33ed.js"><link rel="prefetch" href="/blog/assets/js/73.6d40621d.js"><link rel="prefetch" href="/blog/assets/js/74.4c446a84.js"><link rel="prefetch" href="/blog/assets/js/75.1b692eb1.js"><link rel="prefetch" href="/blog/assets/js/76.32a324b7.js"><link rel="prefetch" href="/blog/assets/js/77.470a107b.js"><link rel="prefetch" href="/blog/assets/js/78.4c479cdf.js"><link rel="prefetch" href="/blog/assets/js/79.09fd9dd7.js"><link rel="prefetch" href="/blog/assets/js/8.66c9bb58.js"><link rel="prefetch" href="/blog/assets/js/80.eb391019.js"><link rel="prefetch" href="/blog/assets/js/81.b5772763.js"><link rel="prefetch" href="/blog/assets/js/82.0e50d170.js"><link rel="prefetch" href="/blog/assets/js/83.9da4150f.js"><link rel="prefetch" href="/blog/assets/js/84.45a82c9c.js"><link rel="prefetch" href="/blog/assets/js/85.7d0a8e92.js"><link rel="prefetch" href="/blog/assets/js/86.c1daa495.js"><link rel="prefetch" href="/blog/assets/js/87.706ebfbf.js"><link rel="prefetch" href="/blog/assets/js/88.b5a31fba.js"><link rel="prefetch" href="/blog/assets/js/89.465f64fd.js"><link rel="prefetch" href="/blog/assets/js/9.202ee023.js"><link rel="prefetch" href="/blog/assets/js/90.49b83b4c.js"><link rel="prefetch" href="/blog/assets/js/91.6a578526.js"><link rel="prefetch" href="/blog/assets/js/92.a208e4c4.js"><link rel="prefetch" href="/blog/assets/js/93.c7177118.js"><link rel="prefetch" href="/blog/assets/js/94.31239f5f.js"><link rel="prefetch" href="/blog/assets/js/95.00ae72a6.js"><link rel="prefetch" href="/blog/assets/js/96.03b21e37.js"><link rel="prefetch" href="/blog/assets/js/97.b6b6dbdf.js"><link rel="prefetch" href="/blog/assets/js/98.4ab95ba9.js"><link rel="prefetch" href="/blog/assets/js/99.701d9694.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.5afabf7a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7a6c954e><div data-v-7a6c954e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-7a6c954e data-v-7a6c954e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-548f7490 data-v-7a6c954e data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490>PG-伴我同行</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>PG</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-7a6c954e><header class="navbar" data-v-7a6c954e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="favicon.ico" alt="PG-伴我同行" class="logo"> <span class="site-name">PG-伴我同行</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/blog/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/blog/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/blog/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/PGthirteen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7a6c954e></div> <aside class="sidebar" data-v-7a6c954e><div class="personal-info-wrapper" data-v-ec2c9702 data-v-7a6c954e><img src="https://avatars.githubusercontent.com/u/130121603?v=4" alt="author-avatar" class="personal-img" data-v-ec2c9702> <h3 class="name" data-v-ec2c9702>
+    PG
+  </h3> <div class="num" data-v-ec2c9702><div data-v-ec2c9702><h3 data-v-ec2c9702>42</h3> <h6 data-v-ec2c9702>文章</h6></div> <div data-v-ec2c9702><h3 data-v-ec2c9702>10</h3> <h6 data-v-ec2c9702>标签</h6></div></div> <hr data-v-ec2c9702></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/blog/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/blog/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/blog/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/PGthirteen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>css学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React学习路线</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/docs/foo/React/Context与Reducer.html" class="sidebar-link">Context与Reducer</a></li><li><a href="/blog/docs/foo/React/Hooks与事件绑定.html" class="sidebar-link">Hooks与事件绑定</a></li><li><a href="/blog/docs/foo/React/Hooks与普通函数的区别.html" class="sidebar-link">Hooks与普通函数的区别</a></li><li><a href="/blog/docs/foo/React/Hooks中的useState.html" class="sidebar-link">Hooks中的useState</a></li><li><a href="/blog/docs/foo/React/Mobx与Redux的异同.html" class="sidebar-link">Mobx与Redux的异同</a></li><li><a href="/blog/docs/foo/React/ReactRouter的实现.html" class="sidebar-link">ReactRouter的实现</a></li><li><a href="/blog/docs/foo/React/React中diff算法的理解.html" class="sidebar-link">React中diff算法的理解</a></li><li><a href="/blog/docs/foo/React/React中JSX的理解.html" class="sidebar-link">React中JSX的理解</a></li><li><a href="/blog/docs/foo/React/React中refs的理解.html" class="sidebar-link">React中refs的理解</a></li><li><a href="/blog/docs/foo/React/React中的合成事件.html" class="sidebar-link">React中的合成事件</a></li><li><a href="/blog/docs/foo/React/React中的纯组件.html" class="sidebar-link">React中的纯组件</a></li><li><a href="/blog/docs/foo/React/React中的高阶组件.html" class="sidebar-link">React中的高阶组件</a></li><li><a href="/blog/docs/foo/React/React中组件间通信的方式.html" class="sidebar-link">React中组件间通信的方式</a></li><li><a href="/blog/docs/foo/React/React生命周期.html" class="sidebar-link">React生命周期</a></li><li><a href="/blog/docs/foo/React/React组件复用的方式.html" class="sidebar-link">React组件复用的方式</a></li><li><a href="/blog/docs/foo/React/React组件的state和props.html" class="sidebar-link">React组件的state和props</a></li><li><a href="/blog/docs/foo/React/React虚拟DOM的理解.html" class="sidebar-link">React虚拟DOM的理解</a></li><li><a href="/blog/docs/foo/React/setState同步异步场景.html" class="sidebar-link">setState同步异步场景</a></li><li><a href="/blog/docs/foo/React/useEffect与useLayoutEffect.html" class="sidebar-link">useEffect与useLayoutEffect</a></li><li><a href="/blog/docs/foo/React/useMemo与useCallback.html" class="sidebar-link">useMemo与useCallback</a></li><li><a href="/blog/docs/foo/React/受控组件和非受控组件.html" class="sidebar-link">受控组件和非受控组件</a></li><li><a href="/blog/docs/foo/React/手写useState与useEffect.html" class="active sidebar-link">手写useState与useEffect</a></li><li><a href="/blog/docs/foo/React/有状态和无状态组件.html" class="sidebar-link">有状态和无状态组件</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue学习路线</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-548f7490 data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>PG</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-7a6c954e><main class="page"><div class="page-title" style="display:none;"><h1>手写useState与useEffect</h1> <div data-v-01d8a6a8><i class="iconfont reco-account" data-v-01d8a6a8><span data-v-01d8a6a8>PG</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="手写usestate与useeffect"><a href="#手写usestate与useeffect" class="header-anchor">#</a> 手写useState与useEffect</h1> <p><code>useState</code>与<code>useEffect</code>是驱动<code>React hooks</code>运行的基础，<code>useState</code>用于管理状态，<code>useEffect</code>用以处理副作用，通过手写简单的<code>useState</code>与<code>useEffect</code>来理解其运行原理。</p> <h2 id="usestate"><a href="#usestate" class="header-anchor">#</a> useState</h2> <p>一个简单的<code>useState</code>的使用如下。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// App.tsx
+import { useState } from &quot;react&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  console.log(&quot;refresh&quot;);
+  const addCount = () =&gt; setCount(count + 1);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;{count}&lt;/div&gt;
+      &lt;button onClick={addCount}&gt;Count++&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>当页面在首次渲染时会<code>render</code>渲染<code>&lt;App /&gt;</code>函数组件，其实际上是调用<code>App()</code>方法，得到虚拟<code>DOM</code>元素，并将其渲染到浏览器页面上，当用户点击<code>button</code>按钮时会调用<code>addCount</code>方法，然后再进行一次<code>render</code>渲染<code>&lt;App /&gt;</code>函数组件，其实际上还是调用了<code>App()</code>方法，得到一个新的虚拟<code>DOM</code>元素，然后<code>React</code>会执行<code>DOM diff</code>算法，将改变的部分更新到浏览器的页面上。也就是说，实际上每次<code>setCount</code>都会重新执行这个<code>App()</code>函数，这个可以通过<code>console.log(&quot;refresh&quot;)</code>那一行看到效果，每次点击按钮控制台都会打印<code>refresh</code>。<br>
+那么问题来了，页面首次渲染和进行<code>+1</code>操作，都会调用<code>App()</code>函数去执行<code>const [count, setCount] = useState(0);</code>这行代码，那它是怎么做到在<code>+ +</code>操作后，第二次渲染时执行同样的代码，却不对变量<code>n</code>进行初始化也就是一直为<code>0</code>，而是拿到<code>n</code>的最新值。<br>
+考虑到上边这个问题，我们可以简单实现一个<code>useMyState</code>函数，上边在<code>Hooks</code>为什么称为<code>Hooks</code>这个问题上提到了可以勾过来一个函数作用域的问题，那么我们也完全可以实现一个<code>Hooks</code>去勾过来一个作用域，简单来说就是在<code>useMyState</code>里边保存一个变量，也就是一个闭包里边保存了这个变量，然后这个变量保存了上次的值，再次调用的时候直接取出这个之前保存的值即可，<code>https://codesandbox.io/s/fancy-dust-kbd1i?file=/src/use-my-state-version-1.ts</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.tsx
+import { render } from &quot;react-dom&quot;;
+import App from &quot;./App&quot;;
+
+// 改造一下让其导出 让我们能够强行刷新`&lt;App /&gt;`
+export const forceRefresh = () =&gt; {
+  console.log(&quot;Force fresh &lt;App /&gt;&quot;);
+  const rootElement = document.getElementById(&quot;root&quot;);
+  render(&lt;App /&gt;, rootElement);
+};
+
+forceRefresh();
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// use-my-state-version-1.ts
+import { forceRefresh } from &quot;./index&quot;;
+
+let saveState: any = null;
+
+export function useMyState&lt;T&gt;(state: T): [T, (newState: T) =&gt; void] {
+  saveState = saveState || state;
+  const rtnState: T = saveState;
+  const setState = (newState: T): void =&gt; {
+    saveState = newState;
+    forceRefresh();
+  };
+  return [rtnState, setState];
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// App.tsx
+import { useMyState } from &quot;./use-my-state-version-1&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [count, setCount] = useMyState(0);
+
+  console.log(&quot;refresh&quot;);
+  const addCount = () =&gt; setCount(count + 1);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;{count}&lt;/div&gt;
+      &lt;button onClick={addCount}&gt;Count++&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>可以在<code>code sandbox</code>中看到现在已经可以实现点击按钮进行<code>++</code>操作了，而不是无论怎么点击都是<code>0</code>，但是上边的情况太过于简单，因为只有一个<code>state</code>，如果使用多个变量，那就需要调用两次<code>useState</code>，我们就需要对其进行一下改进了，不然会造成多个变量存在一个<code>saveState</code>中，这样会产生冲突覆盖的问题，改进思路有两种:<code>1</code>把做成一个对象，比如<code>saveState = { n:0, m:0 }</code>，这种方式不太符合需求，因为在使用<code>useState</code>的时候只会传递一个初始值参数，不会传递名称; <code>2</code>把<code>saveState</code>做成一个数组，比如<code>saveState:[0, 0]</code>。实际上<code>React</code>中是通过类似单链表的形式来代替数组的，通过<code>next</code>按顺序串联所有的<code>hook</code>，使用数组也是一种类似的操作，因为两者都依赖于定义<code>Hooks</code>的顺序，<code>https://codesandbox.io/s/fancy-dust-kbd1i?file=/src/use-my-state-version-2.ts</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.tsx
+import { render } from &quot;react-dom&quot;;
+import App from &quot;./App&quot;;
+
+// 改造一下让其导出 让我们能够强行刷新`&lt;App /&gt;`
+export const forceRefresh = () =&gt; {
+  console.log(&quot;Force fresh &lt;App /&gt;&quot;);
+  const rootElement = document.getElementById(&quot;root&quot;);
+  render(&lt;App /&gt;, rootElement);
+};
+
+forceRefresh();
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// use-my-state-version-2.ts
+import { forceRefresh } from &quot;./index&quot;;
+
+let saveState: any[] = [];
+let index: number = 0;
+
+export function useMyState&lt;T&gt;(state: T): [T, (newState: T) =&gt; void] {
+  const curIndex = index;
+  index++;
+  saveState[curIndex] = saveState[curIndex] || state;
+  const rtnState: T = saveState[curIndex];
+  const setState = (newState: T): void =&gt; {
+    saveState[curIndex] = newState;
+    index = 0; // 必须在渲染前后将`index`值重置为`0` 不然就无法借助调用顺序确定`Hooks`了
+    forceRefresh();
+  };
+  return [rtnState, setState];
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// App.tsx
+import { useMyState } from &quot;./use-my-state-version-2&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [count1, setCount1] = useMyState(0);
+  const [count2, setCount2] = useMyState(0);
+
+  console.log(&quot;refresh&quot;);
+  const addCount1 = () =&gt; setCount1(count1 + 1);
+  const addCount2 = () =&gt; setCount2(count2 + 1);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;{count1}&lt;/div&gt;
+      &lt;button onClick={addCount1}&gt;Count1++&lt;/button&gt;
+      &lt;div&gt;{count2}&lt;/div&gt;
+      &lt;button onClick={addCount2}&gt;Count2++&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>可以看到已经可以实现在多个<code>State</code>下的独立的状态更新了，那么问题又又来了，<code>&lt;App /&gt;</code>用了<code>saveState</code>和<code>index</code>，那其他组件用什么，也就是说多个组件如果解决每个组件独立的作用域，解决办法<code>1</code>每个组件都创建一个<code>saveState</code>和<code>index</code>，但是几个组件在一个文件中又会导致<code>saveState</code>、<code>index</code>冲突。解决办法<code>2</code>放在组件对应的虚拟节点对象上，<code>React</code>采用的也是这种方案，将<code>saveState</code>和<code>index</code>变量放在组件对应的虚拟节点对象<code>FiberNode</code>上，在<code>React</code>中具体实现<code>saveState</code>叫做<code>memoizedState</code>，实际上<code>React</code>中是通过类似单链表的形式来代替数组的，通过<code>next</code>按顺序串联所有的<code>hook</code>。<br>
+可以看出<code>useState</code>是强依赖于定义的顺序的，<code>useState</code>数组中保存的顺序非常重要在执行函数组件的时候可以通过下标的自增获取对应的<code>state</code>值，由于是通过顺序获取的，这将会强制要求你不允许更改<code>useState</code>的顺序，例如使用条件判断是否执行<code>useState</code>这样会导致按顺序获取到的值与预期的值不同，这个问题也出现在了<code>React.useState</code>自己身上，因此<code>React</code>是不允许你使用条件判断去控制函数组件中的<code>useState</code>的顺序的，这会导致获取到的值混乱，类似于下边的代码则会抛出异常。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const App = () =&gt; {
+    let state;
+    if(true){
+        [state, setState] = React.useState(0);
+    }
+    return (
+        &lt;div&gt;{state}&lt;/div&gt;
+    )
+}
+
+&lt;!-- React Hook &quot;React.useState&quot; is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks--&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>这里当然只是对于<code>useState</code>的简单实现，对于<code>React</code>真正的实现可以参考<code>packages/react-reconciler/src/ReactFiberHooks.js</code>，当前的<code>React</code>版本是<code>16.10.2</code>，也可以简略看一下相关的<code>type</code>。</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">type</span> <span class="token class-name">Hooks</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  memoizedState<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> <span class="token comment">// 指向当前渲染节点`Fiber` 上一次完整更新之后的最终状态值</span>
+  baseState<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> <span class="token comment">// 初始化`initialState` 已经每次`dispatch`之后`newState`</span>
+  baseUpdate<span class="token operator">:</span> Update<span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// 当前需要更新的`Update` 每次更新完之后会赋值上一个`update` 方便`react`在渲染错误的边缘数据回溯</span>
+  queue<span class="token operator">:</span> UpdateQueue<span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// 缓存的更新队列 存储多次更新行为</span>
+  next<span class="token operator">:</span> Hook <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// `link`到下一个`hooks` 通过`next`串联所有`hooks`</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="useeffect"><a href="#useeffect" class="header-anchor">#</a> useEffect</h2> <p>一个简单的<code>useEffect</code>的使用如下。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { useEffect, useState } from &quot;react&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  console.log(&quot;refresh&quot;);
+  const addCount1 = () =&gt; setCount1(count1 + 1);
+  const addCount2 = () =&gt; setCount2(count2 + 1);
+
+  useEffect(() =&gt; {
+    console.log(&quot;count1 -&gt; effect&quot;, count1);
+  }, [count1]);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;{count1}&lt;/div&gt;
+      &lt;button onClick={addCount1}&gt;Count1++&lt;/button&gt;
+      &lt;div&gt;{count2}&lt;/div&gt;
+      &lt;button onClick={addCount2}&gt;Count2++&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>同样，每次<code>addCount1</code>都会重新执行这个<code>App()</code>函数，每次点击按钮控制台都会打印<code>refresh</code>，在这里还通过<code>count1</code>变动的副作用来打印了<code>count1 -&gt; effect ${count1}</code>，而点击<code>addCount2</code>却不会处罚副作用的打印，原因明显是我们只指定了<code>count1</code>的副作用，由此可见可以通过<code>useEffect</code>来实现更细粒度的副作用处理。<br>
+在这里我们依旧延续上边<code>useState</code>的实现思路，将之前的数据存储起来，之后当函数执行的时候我们对比这其中的数据是否发生了变动，如果发生了变动，那么我们便执行该函数，当然我们还需要完成副作用清除的功能，<code>https://codesandbox.io/s/react-usestate-8v0li9?file=/src/use-my-effect.ts</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// use-my-effect.ts
+const dependencyList: unknown[][] = [];
+const clearCallbacks: (void | (() =&gt; void))[] = [];
+let index: number = 0;
+
+export function useMyEffect(
+  callback: () =&gt; void | (() =&gt; void),
+  deps: unknown[]
+): void {
+  const curIndex = index;
+  index++;
+  const lastDeps = dependencyList[curIndex];
+  const changed =
+    !lastDeps || !deps || deps.some((dep, i) =&gt; dep !== lastDeps[i]);
+  if (changed) {
+    dependencyList[curIndex] = deps;
+    const clearCallback = clearCallbacks[curIndex];
+    if (clearCallback) clearCallback();
+    clearCallbacks[curIndex] = callback();
+  }
+}
+
+export function clearEffectIndex() {
+  index = 0;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// App.tsx
+import { useState } from &quot;react&quot;;
+import { useMyEffect, clearEffectIndex } from &quot;./use-my-effect&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  console.log(&quot;refresh&quot;);
+  const addCount1 = () =&gt; setCount1(count1 + 1);
+  const addCount2 = () =&gt; setCount2(count2 + 1);
+
+  useMyEffect(() =&gt; {
+    console.log(&quot;count1 -&gt; effect&quot;, count1);
+    console.log(&quot;setTimeout&quot;, count1);
+    return () =&gt; console.log(&quot;clear setTimeout&quot;, count1);
+  }, [count1]);
+
+  useMyEffect(() =&gt; {
+    console.log(&quot;count2 -&gt; effect&quot;, count2);
+  }, [count2]);
+
+  clearEffectIndex();
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;{count1}&lt;/div&gt;
+      &lt;button onClick={addCount1}&gt;Count1++&lt;/button&gt;
+      &lt;div&gt;{count2}&lt;/div&gt;
+      &lt;button onClick={addCount2}&gt;Count2++&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p>通过上边的实现，我们也可以通过将依赖与副作用清除函数存起来的方式，来实现<code>useEffect</code>，通过对比上一次传递的依赖值与当前传递的依赖值是否相同，来决定是否执行传递过来的函数，在这里由于我们无法得知这个<code>React.Fc</code>组件函数是在什么时候完成最后一个<code>Effect</code>，我们就需要手动来赋值这个标记的<code>index</code>为<code>0</code>。当然在<code>React</code>之中同样也是将<code>useEffect</code>挂载到了<code>Fiber</code>上来实现的，并且将所需要的依赖值存储在当前的<code>Fiber</code>的<code>memorizedState</code>中，通过实现的链表以及判断初次加载来实现了通过<code>next</code>按顺序串联所有的<code>hooks</code>，这样也就能知道究竟哪个是最后一个<code>Hooks</code>了，另外<code>useEffect</code>同样也是强依赖于定义的顺序的，能够让<code>React</code>对齐多次执行组件函数时的依赖。</p> <h2 id="自定义hooks"><a href="#自定义hooks" class="header-anchor">#</a> 自定义Hooks</h2> <p>我在初学<code>Hooks</code>的时候一直有一个疑问，对于<code>React Hooks</code>的使用与普通的函数调用区别究竟在哪里，当时我还对知乎的某个问题强答了一番。</p> <p>以我学了几天<code>React</code>的理解，自定义<code>Hooks</code>跟普通函数区别在于:</p> <ul><li><code>Hooks</code>只应该在<code>React</code>函数组件内调用，而不应该在普通函数调用。</li> <li><code>Hooks</code>能够调用诸如<code>useState</code>、<code>useEffect</code>、<code>useContext</code>等，普通函数则不能。</li></ul> <p>由此觉得<code>Hooks</code>就像<code>mixin</code>，是在组件之间共享有状态和副作用的方式，所以应该是应该在函数组件中用到的与组件生命周期等相关的函数才能称为<code>Hooks</code>，而不仅仅是普通的<code>utils</code>函数。<br>
+对于第一个问题，如果将其声明为<code>Hooks</code>但是并没有起到作为Hooks的功能，那么私认为不能称为<code>Hooks</code>，为避免混淆，还是建议在调用其他<code>Hooks</code>的时候再使用<code>use</code>标识。当然，诸如自己实现一个<code>useState</code>功能这种虽然并没有调用其他的<code>Hooks</code>，但是他与函数组件的功能强相关，肯定是属于<code>Hooks</code>的。<br>
+对于第二个问题的话，其实必须使用<code>use</code>开头并不是一个语法或者一个强制性的方案， 以<code>use</code>开头其实更像是一个约定，就像是<code>GET</code>请求约定语义不携带<code>Body</code>一样， 其主要目的还是为了约束语法，如果你自己实现一个类似<code>useState</code>简单功能的话，就会了解到为什么不能够出现类似于<code>if (xxx) const [a, setA] = useState(0);</code>这样的代码了，<code>React</code>文档中明确说明了使用<code>Hooks</code>的规则，使用<code>use</code>开头的目的就是让<code>React</code>识别出来这是个<code>Hooks</code>，从而检查这些规则约束，通常也会使用<code>ESlint</code>配合<code>eslint-plugin-react-hooks</code>检查这些规则。</p> <p>后来对于这个问题有了新的理解，如果定义一个真正的自定义<code>Hooks</code>的话，那么通常都会需要使用<code>useState</code>、<code>useEffect</code>等<code>Hooks</code>，就相当于自定义<code>Hooks</code>是由官方的<code>Hooks</code>组合而成的，而通过官方的这些<code>Hooks</code>来组合的话，就可以实现将数据挂载到节点上，也就是上边的实现提到的实际<code>memorizedState</code>都是在<code>Fiber</code>中的，而自行实现的函数例如上边的<code>Hooks</code>实现，是无法做到这一点的。也就是说我们通过自定义<code>Hooks</code>是通过来组合官方<code>Hooks</code>以及自己的逻辑来实现的对于节点内的一些状态或者其他方面的逻辑封装，而使用普通函数且采用类似于<code>Hooks</code>的语法的话则只能实现在全局的状态和逻辑的封装，简单来说就是提供了接口来让我们可以在节点上做逻辑的封装。<br>
+有一个简单的例子，例如我们要封装一个<code>useUpdateEffect</code>来避免在函数组件在第一次挂载的时候就执行<code>effect</code>，在这里我们就应该采用<code>useRef</code>或者是<code>useState</code>而不是仅仅定义一个变量来存储状态值，<code>https://codesandbox.io/s/flamboyant-tu-21po2l?file=/src/App.tsx</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// use-update-effect-ref.ts
+import { DependencyList, EffectCallback, useEffect, useRef } from &quot;react&quot;;
+
+export const useUpdateEffect = (
+  effect: EffectCallback,
+  deps?: DependencyList
+) =&gt; {
+  const isMounted = useRef(false);
+
+  useEffect(() =&gt; {
+    if (!isMounted.current) {
+      isMounted.current = true;
+    } else {
+      return effect();
+    }
+  }, deps);
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// use-update-effect-var.ts
+import { DependencyList, EffectCallback, useEffect } from &quot;react&quot;;
+
+let isMounted = false;
+export const useUpdateEffect = (
+  effect: EffectCallback,
+  deps?: DependencyList
+) =&gt; {
+  useEffect(() =&gt; {
+    if (!isMounted) {
+      isMounted = true;
+    } else {
+      return effect();
+    }
+  }, deps);
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// App.tsx
+import { useState, useEffect } from &quot;react&quot;;
+import { useUpdateEffect } from &quot;./use-update-effect-ref&quot;;
+// import { useUpdateEffect } from &quot;./use-update-effect-var&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  const addCount1 = () =&gt; setCount1(count1 + 1);
+  const addCount2 = () =&gt; setCount2(count2 + 1);
+
+  useUpdateEffect(() =&gt; {
+    console.log(&quot;count1 -&gt; effect&quot;, count1);
+  }, [count1]);
+
+  useUpdateEffect(() =&gt; {
+    console.log(&quot;count2 -&gt; effect&quot;, count2);
+  }, [count2]);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;{count1}&lt;/div&gt;
+      &lt;button onClick={addCount1}&gt;Count1++&lt;/button&gt;
+      &lt;div&gt;{count2}&lt;/div&gt;
+      &lt;button onClick={addCount2}&gt;Count2++&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>当我们切换<code>use-update-effect-ref</code>与<code>use-update-effect-var</code>的<code>useUpdateEffect</code>时，我们会发现当刷新页面时使用<code>use-update-effect-ref</code>将不会有值打印，而<code>use-update-effect-var</code>则会打印<code>count2 -&gt; effect 0</code>，而在点击<code>Count1++</code>或者<code>Count2++</code>的效果都是正常的，说明<code>use-update-effect-ref</code>是能够我们想要的<code>useUpdateEffect</code>功能，而<code>use-update-effect-var</code>却因为变量值共享的问题而无法正确实现功能，当然我们也可以通过类似于数组的方式来解决这个问题，但是再具体到各个组件之间的共享上面，我们就无法在在类似于<code>Hooks</code>语法的基础上来实现了，必须手动注册一个闭包来完成类似的功能，而且类似于<code>useState</code>在<code>set</code>时刷新本组件以及子组件的方式，就必须借助<code>useState</code>来实现了。</p> <h2 id="每日一题"><a href="#每日一题" class="header-anchor">#</a> 每日一题</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://github.com/WindrunnerMax/EveryDay
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://zhuanlan.zhihu.com/p/265662126
+https://juejin.cn/post/6927698033798807560
+https://segmentfault.com/a/1190000037608813
+https://github.com/brickspert/blog/issues/26
+https://codesandbox.io/s/flamboyant-tu-21po2l
+https://codesandbox.io/s/react-usestate-kbd1i
+https://codesandbox.io/s/react-usestate-8v0li9
+https://stackoverflow.com/questions/60133412/react-custom-hooks-vs-normal-functions-what-is-the-difference
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:2;" data-v-248d85d6></canvas></div><!----><div class="RibbonAnimation"></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;left:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:1;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="https://sd-sycdn.kuwo.cn/5f1ba98baf65c6b1cadff971b47bb713/643752f9/resource/n3/39/21/2362952402.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://p3-pc.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2a5843a4b216933063cb2bcd6236cfbe.jpeg?from=2956013662" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://p3-pc.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2a5843a4b216933063cb2bcd6236cfbe.jpeg?from=2956013662);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>我落泪情绪零碎</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>周杰伦</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/blog/assets/js/app.5f46caf4.js" defer></script><script src="/blog/assets/js/3.ba706977.js" defer></script><script src="/blog/assets/js/1.5260e963.js" defer></script><script src="/blog/assets/js/150.06d93455.js" defer></script>
+  </body>
+</html>
